@@ -27,4 +27,16 @@ public class ProcessadorThread extends Thread{
         processar();
         System.out.println("Thread #"+idThread+" sainda da região crítica");
     }
+
+    public void run() {
+        entrarRegiaoNaoCritica();
+        try {
+            semaphore.acquire();
+            entrarRegioCritica();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            semaphore.release();
+        }
+    }
 }
