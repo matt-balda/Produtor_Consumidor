@@ -2,7 +2,7 @@ import java.util.concurrent.Semaphore;
 
 public class Main {
     public static void main(String[] args) {
-        int numeroDePermicoes = 10;
+        int numeroDePermicoes = 2;
         int numeroDeProcessos = 6;
         Semaphore semaphore = new Semaphore(numeroDePermicoes);
         ProcessadorThread[] processos = new ProcessadorThread[numeroDeProcessos];
