@@ -17,4 +17,14 @@ public class ProcessadorThread extends Thread{
             throw new RuntimeException(e);
         }
     }
+    private void entrarRegiaoNaoCritica() {
+        System.out.println("Thread #"+idThread+" em região não crítica");
+        processar();
+    }
+
+    private void entrarRegioCritica() {
+        System.out.println("Thread #"+idThread+" entrando em região crítica");
+        processar();
+        System.out.println("Thread #"+idThread+" sainda da região crítica");
+    }
 }
