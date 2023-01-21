@@ -29,5 +29,5 @@ public static void main(String[] args) {
             threads[i].stopThread();
         }
     }
-    
+``` 
 Este código cria um semáforo e uma fila de bloqueio, em seguida, cria um vetor de objetos `ProdutorConsumidorThread` e inicia cada um em uma thread separada. O número de threads criadas é determinado pela variável `numThreads`.
