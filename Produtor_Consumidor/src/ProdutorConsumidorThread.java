@@ -4,12 +4,14 @@ import java.util.concurrent.Semaphore;
 public class ProdutorConsumidorThread extends Thread {
     private int idThread;
     private Semaphore semaphore;
+    private Semaphore semaphore2;
     private BlockingQueue<Integer> fila;
     private volatile boolean stop = false;
 
-    public ProdutorConsumidorThread(int id, Semaphore semaphore, BlockingQueue<Integer> fila) {
+    public ProdutorConsumidorThread(int id, Semaphore semaphore, Semaphore semaphore2, BlockingQueue<Integer> fila) {
         this.idThread = id;
         this.semaphore = semaphore;
+        this.semaphore2 = semaphore2;
         this.fila = fila;
     }
 
@@ -51,10 +53,12 @@ public class ProdutorConsumidorThread extends Thread {
             produzir();
             try {
                 semaphore.acquire();
+                semaphore2.acquire();
                 consumir();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } finally {
+                semaphore2.release();
                 semaphore.release();
             }
         }
