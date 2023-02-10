@@ -11,12 +11,12 @@ Para usar este algoritmo, você precisará criar uma instância da classe `Produ
 Abaixo está um exemplo de como usar o algoritmo em um método main:
 ```java
 public static void main(String[] args) {
-        int numThreads = 100; // numero de thread para criar
-        int filaSize = 100; // tamanho da fila de bloqueio
-        int semaphorePermits = filaSize / 2; // numero de licenças para o semáforo
+        int numThreads = 100; 
+        int filaSize = 100;
+        int semaphorePermits = filaSize / 2; 
 
         Semaphore semaphore = new Semaphore(semaphorePermits);
-        Semaphore semaphore2 = new Semaphore(semaphorePermits); // segunda Thread, para servi como DeadLocK
+        Semaphore semaphore2 = new Semaphore(semaphorePermits); 
         BlockingQueue<Integer> fila = new ArrayBlockingQueue<Integer>(filaSize);
 
         ProdutorConsumidorThread[] threads = new ProdutorConsumidorThread[numThreads];
